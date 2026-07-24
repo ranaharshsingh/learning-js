@@ -57,3 +57,49 @@ let btn=document.querySelector("#btn");
         inp.value="";
     }
   });
+
+   // ----------------*----------------email and password validation
+
+// Email & Password Validation
+
+let email = document.querySelector("#email");
+let password = document.querySelector("#password");
+let form = document.querySelector("form");
+
+form.addEventListener("submit", function (dets) {
+    dets.preventDefault();
+
+    document.querySelector("#emailError").textContent = "";
+    document.querySelector("#passwordError").textContent = "";
+    document.querySelector("#resultMessage").textContent = "";
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/;
+
+    const passwordRegex =
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+
+    let emailAns = emailRegex.test(email.value);
+    let passwordAns = passwordRegex.test(password.value);
+
+    let isValid = true;
+
+    if (!emailAns) {
+        document.querySelector("#emailError").textContent =
+            "Email incorrect";
+        document.querySelector("#emailError").style.display = "initial";
+        isValid = false;
+    }
+
+    if (!passwordAns) {
+        document.querySelector("#passwordError").textContent =
+            "Password must be at least 8 characters";
+        document.querySelector("#passwordError").style.display = "initial";
+        isValid = false;
+    }
+
+    if (isValid) {
+        document.querySelector("#resultMessage").textContent =
+            "Everything is correct";
+    }
+});
