@@ -103,3 +103,19 @@ form.addEventListener("submit", function (dets) {
             "Everything is correct";
     }
 });
+
+ // ----------------*----------------mouseover & mosuemove
+
+ let ABCD = document.querySelector("#ABCD");
+ ABCD.addEventListener("mouseover",function(){
+    ABCD.style.background_color = "yellow";
+ });
+ABCD.addEventListener("mouseout",function(){
+    ABCD.style.background_color = "red";    
+});
+                      // move element within the window ;
+window.addEventListener("mousemove",function(dets){
+    console.log(DOMStringList.clientx,dets.clienty);
+});
+// ABCD.style.top=dets.clienty+"px";
+// ABCD.style.left=dets.clientx+"px";
